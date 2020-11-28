@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RegisterApp</string>
+    <string name="enter_name">Masukkan Nama</string>
+    <string name="enter_participant_number">Masukkan Nomer Peserta</string>
+    <string name="gender">Jenis Kelamin L/P</string>
+    <string name="date_of_birth">Tanggal Lahir</string>
+    <string name="age">Usia</string>
+    <string name="register">DAFTAR</string>
+    <string name="my_data">DATA SAYA</string>
+    <string name="result">Hasil</string>
+</resources>
