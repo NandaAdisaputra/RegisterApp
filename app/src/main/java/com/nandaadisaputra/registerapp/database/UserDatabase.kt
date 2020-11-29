@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.nandaadisaputra.registerapp.model.UserModel
 
-@Database(entities = [UserModel::class], version = 1)
+@Database(entities = [UserModel::class], version = 2)
 abstract class UserDatabase : RoomDatabase(){
 
     abstract fun userDao() : UserDao

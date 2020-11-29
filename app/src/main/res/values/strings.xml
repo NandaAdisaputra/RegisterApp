@@ -8,4 +8,6 @@
     <string name="register">DAFTAR</string>
     <string name="my_data">DATA SAYA</string>
     <string name="result">Hasil</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

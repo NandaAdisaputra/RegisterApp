@@ -4,24 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_4sdp"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
     app:cardCornerRadius="@dimen/_16sdp"
     app:cardElevation="@dimen/_12sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/green">
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:textSize="@dimen/_24ssp"
+            android:text="@string/result"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewNumberParticipant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/textViewResult"
+            android:id="@+id/textViewName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:padding="@dimen/_4sdp"
             android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewNumberParticipant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result"
+            tools:text="Nama Peserta" />
+
+        <TextView
+            android:id="@+id/textViewNumberParticipant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_4sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewGender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewName"
+            tools:text="Nomor Peserta" />
+
+        <TextView
+            android:id="@+id/textViewGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_4sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewGender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewGender"
+            tools:text="Jenis Kelamin" />
+
+        <TextView
+            android:id="@+id/textViewAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_4sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewDateOfBirth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewGender"
+            tools:text="Usia" />
+
+        <TextView
+            android:id="@+id/textViewDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_4sdp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Subkhan Asroi" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewAge"
+            tools:text="Tanggal Lahir" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

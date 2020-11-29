@@ -7,40 +7,45 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nandaadisaputra.registerapp.R
 import com.nandaadisaputra.registerapp.adapter.UserAdapter
 import com.nandaadisaputra.registerapp.database.UserDatabase
+import com.nandaadisaputra.registerapp.databinding.ActivityMainBinding
 import com.nandaadisaputra.registerapp.model.UserModel
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
-    var userDatabase: UserDatabase? = null
-    lateinit var layoutManager: LinearLayoutManager
-    lateinit var adapter: UserAdapter
+    private lateinit var binding: ActivityMainBinding
+    private var userDatabase: UserDatabase? = null
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var adapter: UserAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         userDatabase = UserDatabase.getInstance(this)
         layoutManager = LinearLayoutManager(this)
         adapter = UserAdapter(ArrayList())
-        recyclerUser.layoutManager = layoutManager
-        recyclerUser.adapter = adapter
+        binding.recyclerUser.layoutManager = layoutManager
+        binding.recyclerUser.adapter = adapter
         val path = getDatabasePath("User.db").canonicalPath
         Log.d("DATABASE", "Path Database $path")
-        buttonRegister.onClick {
+        binding.buttonRegister.onClick {
             insertNewUser()
         }
     }
 
     private fun insertNewUser() {
         val user = UserModel(
-            name = editName.text.toString(),
-            number= editNumberParticipant.text.toString(),
-            gender = editGender.text.toString(),
-            date = editDateOfBirth.text.toString(),
-            age = editAge.text.toString()
+            name = binding.editName.text.toString(),
+            number = binding.editNumberParticipant.text.toString(),
+            gender = binding.editGender.text.toString(),
+            date = binding.editDateOfBirth.text.toString(),
+            age = binding.editAge.text.toString()
         )
-
+        binding.buttonData.onClick {
             GlobalScope.launch {
                 userDatabase?.userDao()?.insertUser(user)
                 val list: List<UserModel>? = userDatabase?.userDao()?.getAllUser()
@@ -49,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
     override fun onRestart() {
         super.onRestart()
         insertNewUser()
